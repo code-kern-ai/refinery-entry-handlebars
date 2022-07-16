@@ -1,0 +1,162 @@
+{{#each (onlyNodes nodes only)}}
+  {{#if ../isRegistration}}
+    {{#if (eq this.attributes.name ../firstName)}}
+      <fieldset
+        data-testid="node/input/{{attributes.name}}">
+        <label class="label-input">
+          <span>
+            First name
+            <span class="required-indicator">*</span>
+          </span>
+          <input
+            class="text-input"
+            name="{{attributes.name}}"
+            type="{{attributes.type}}"
+            value="{{attributes.value}}"
+            placeholder="First name"
+            {{#if attributes.disabled}}disabled{{/if}}
+            required
+          />
+        </label>
+        {{#if messages}}
+          <div class="typography-caption">
+            {{> messages }}
+          </div>
+        {{/if}}
+      </fieldset>
+    {{else}}
+       {{#if (eq this.attributes.name ../lastName)}}
+         <fieldset
+          data-testid="node/input/{{attributes.name}}">
+          <label class="label-input">
+            <span>
+              Last name
+              <span class="required-indicator">*</span>
+            </span>
+            <input
+              class="text-input"
+              name="{{attributes.name}}"
+              type="{{attributes.type}}"
+              value="{{attributes.value}}"
+              placeholder="Last name"
+              {{#if attributes.disabled}}disabled{{/if}}
+              required
+            />
+          </label>
+          {{#if messages}}
+            <div class="typography-caption">
+              {{> messages }}
+            </div>
+          {{/if}}
+        </fieldset>
+        {{else}}
+          {{#if @last}}
+            {{#if ../isFreeTrial}}
+              <div class="info-containter">
+                <span>Once you register for an account, we’ll set up an organization for you - this is a manual step, but it usually only takes minutes.</span>
+                <div>We’ll get back to you as soon as possible.</div> 
+              </div>
+              {{> (toUiNodePartial .)}}
+            {{else}}
+              <div class="info-containter">
+                <span>This sets up a single-user account on your local machine.</span>
+                <div> If you want to use a hosted version with GPU acceleration, multi-user capabilities and additional features, check out our hostings.</div>
+              </div>
+              {{> (toUiNodePartial .)}}
+            {{/if}}
+          {{else}}
+            {{> (toUiNodePartial .)}}
+          {{/if}}
+        {{/if}}
+    {{/if}}
+
+  {{else}}
+    {{#if ../isRecovery}}
+      {{#if @last}}
+        <div class="input-button">
+          <button class="button-sign-in"
+            onclick="{{attributes.onclick}}"
+            name="{{attributes.name}}"
+            type="{{attributes.type}}"
+            value="{{attributes.value}}"
+            {{#if attributes.disabled}}disabled{{/if}}>
+            Send reset code to mail
+          </button>
+          {{#if messages}}
+            <span class="button-helper">
+              {{> messages }}
+            </span>
+          {{/if}}
+        </div>
+      {{else}}
+        {{> (toUiNodePartial .)}}
+      {{/if}}
+    {{else}}
+      {{#if ../isLogin}}
+        {{#if (eq this.attributes.name ../login)}}
+          {{> ui_node_input_email}}
+        {{else}}
+          {{> (toUiNodePartial .)}}
+        {{/if}}
+      {{else}}
+        {{#if ../isSettings}}
+          {{#if (eq this.attributes.name ../firstName)}}
+            <fieldset
+              data-testid="node/input/{{attributes.name}}">
+              <label class="label-input">
+                <span>
+                  First name
+                  <span class="required-indicator">*</span>
+                </span>
+                <input
+                  class="text-input"
+                  name="{{attributes.name}}"
+                  type="{{attributes.type}}"
+                  value="{{attributes.value}}"
+                  placeholder="First name"
+                  {{#if attributes.disabled}}disabled{{/if}}
+                  required
+                />
+              </label>
+              {{#if messages}}
+                <div class="typography-caption">
+                  {{> messages }}
+                </div>
+              {{/if}}
+            </fieldset>
+          {{else}}
+            {{#if (eq this.attributes.name ../lastName)}}
+              <fieldset
+                data-testid="node/input/{{attributes.name}}">
+                <label class="label-input">
+                  <span>
+                    Last name
+                    <span class="required-indicator">*</span>
+                  </span>
+                  <input
+                    class="text-input"
+                    name="{{attributes.name}}"
+                    type="{{attributes.type}}"
+                    value="{{attributes.value}}"
+                    placeholder="Last name"
+                    {{#if attributes.disabled}}disabled{{/if}}
+                    required
+                  />
+                </label>
+                {{#if messages}}
+                  <div class="typography-caption">
+                    {{> messages }}
+                  </div>
+                {{/if}}
+              </fieldset>
+            {{else}}
+               {{> (toUiNodePartial .)}}
+            {{/if}}
+          {{/if}}
+        {{else}}
+          {{> (toUiNodePartial .)}}
+        {{/if}}        
+      {{/if}}
+    {{/if}}
+  {{/if}}
+{{/each}}

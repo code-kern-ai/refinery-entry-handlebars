@@ -1,0 +1,14 @@
+<div id="signup">
+  {{#if isFreeTrial}}
+  <h2 class="title">Start your 14-day free trial</h2>
+  {{else}}
+  <h2 class="title">Sign up for a local account</h2>
+  {{/if}}
+
+  {{> messages messages=messages className="global"}}
+  {{> ui ui=ui isRegistration=isRegistration}}
+
+  <div class="link-container">
+    <a class="link" data-testid="forgot-password" href="login">Go back to login</a>
+  </div>
+</div>

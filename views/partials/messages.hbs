@@ -1,0 +1,9 @@
+<div class="messages {{className}}">
+  {{~#each messages~}}
+    {{#if (or ../isRecovery ../isSettings)}}
+      <div class="message success" data-testid="ui/message/{{id}}">{{text}}</div>
+    {{else}}
+      <div class="message" data-testid="ui/message/{{id}}">{{text}}</div>
+    {{/if}}
+  {{~/each~}}
+</div>

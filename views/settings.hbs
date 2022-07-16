@@ -1,0 +1,76 @@
+<div id="settings">
+  <h2 class="title">Profile management and security settings</h2>
+
+  {{#if ui.messages}}
+    <div class="card">
+      {{> messages messages=ui.messages className="standalone" }}
+    </div>
+  {{/if}}
+
+  <div class="form-container">
+    <form action="{{ui.action}}" method="{{ui.method}}">
+      <h3 class="subtitle">Profile Settings</h3>
+      {{> ui_nodes nodes=ui.nodes only="profile,default" }}
+    </form>
+  </div>
+
+  {{#if (onlyNodes ui.nodes "password")}}
+    <div class="form-container">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="subtitle">Change password</h3>
+        {{> ui_nodes nodes=ui.nodes only="password,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "oidc")}}
+    <div class="form-container">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="subtitle">Manage social sign in</h3>
+        {{> ui_nodes nodes=ui.nodes only="oidc,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "lookup_secret")}}
+    <div class="form-container">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="subtitle">Manage 2FA backup recovery codes</h3>
+        <p>Recovery codes can be used in panic situations where you have lost access to your 2FA device.</p>
+        {{> ui_nodes nodes=ui.nodes only="lookup_secret,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "totp")}}
+    <div class="form-container">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="subtitle">Manage 2FA TOTP Authenticator App</h3>
+        <p>Add a TOTP Authenticator App to your account to improve your account security.
+          Popular Authenticator Apps are <a href="https://www.lastpass.com" target="_blank">LastPass</a> and Google
+          Authenticator (<a href="https://apps.apple.com/us/app/google-authenticator/id388497605"
+                            target="_blank">iOS</a>, <a
+            href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en&gl=US"
+            target="_blank">Android</a>).
+        </p>
+        {{> ui_nodes nodes=ui.nodes only="totp,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  {{#if (onlyNodes ui.nodes "webauthn")}}
+    <div class="form-container">
+      <form action="{{ui.action}}" method="{{ui.method}}">
+        <h3 class="subtitle">Manage hardware tokens and biometrics</h3>
+        <p>
+          Use hardware tokens (e.g. YubiKey) or biometrics (e.g. FaceID, TouchID) to enhance your account security.
+        </p>
+        {{> ui_nodes nodes=ui.nodes only="webauthn,default" }}
+      </form>
+    </div>
+  {{/if}}
+
+  <div class="link-container">
+    <a class="link" href="login">Back</a>
+  </div>
+</div>

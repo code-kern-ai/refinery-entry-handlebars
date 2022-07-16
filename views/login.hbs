@@ -1,0 +1,24 @@
+<div id="login">
+  <h2 class="title">Sign in to your account</h2>
+  {{#if isFreeTrial}}
+  <p class="text-paragraph">Or
+    <a class="link" data-testid="cta-link" href="{{signUpUrl}}">start your 14-day free trial</a>
+    - no credit card required!
+  </p>
+  {{else}}
+  <p class="text-paragraph">You don't have an account yet?
+    <a class="link" data-testid="cta-link" href="{{signUpUrl}}">Sign up here (local)</a>
+  </p>
+  {{/if}}
+
+  {{> messages messages=messages className="global"}}
+  {{> ui ui=ui}}
+
+  <div class="link-container">
+    {{#if isAuthenticated}}
+    <a class="link" data-testid="logout-link" href="{{logoutUrl}}">Logout</a>
+    {{else}}
+    <a class="link" data-testid="forgot-password" href="recovery">Forgot your password?</a>
+    {{/if}}
+  </div>
+</div>
