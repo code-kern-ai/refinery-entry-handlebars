@@ -1,6 +1,6 @@
 <div id="login">
   <h2 class="title">Sign in to your account</h2>
-  {{#if ( isDemoUser)}}
+  {{#if (not isDemoUser)}}
     {{#if isFreeTrial}}
     <p class="text-paragraph">Or
       <a class="link" data-testid="cta-link" href="{{signUpUrl}}">start your 14-day free trial</a>
@@ -20,7 +20,7 @@
     {{#if isAuthenticated}}
     <a class="link" data-testid="logout-link" href="{{logoutUrl}}">Logout</a>
     {{else}}
-      {{#if ( isDemoUser)}} 
+      {{#if (not isDemoUser)}} 
         <a class="link" data-testid="forgot-password" href="recovery">Forgot your password?</a>
       {{/if}}
     {{/if}}
