@@ -64,7 +64,8 @@ export const createLoginRoute: RouteCreator =
           signUpUrl: initRegistrationUrl,
           logoutUrl: logoutUrl,
           isLogin: true,
-          login: 'password_identifier'
+          login: 'password_identifier',
+          password: 'password'
         })
       })
       .catch(redirectOnSoftError(res, next, initFlowUrl))
