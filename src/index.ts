@@ -43,8 +43,9 @@ app.engine(
   })
 )
 
-// A global variable which is manually set
+// Global variables which are manually set
 app.locals.isFreeTrial = !(process.env.IS_OS === 'true' || process.env.IS_OS === '1');
+app.locals.isDemoUser = process.env.IS_DEMO === 'true' || process.env.IS_DEMO === '1';
 
 registerStaticRoutes(app)
 registerHealthRoute(app)

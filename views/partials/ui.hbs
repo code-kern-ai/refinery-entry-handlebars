@@ -1,6 +1,6 @@
 <div class="ui-container">
   <form action="{{ui.action}}" method="{{ui.method}}">
     {{> messages messages=ui.messages isRecovery=isRecovery}}
-    {{> ui_nodes nodes=ui.nodes only=only isRegistration=isRegistration isRecovery=isRecovery isLogin=isLogin login=login isSettings=isSettings firstName=firstName lastName=lastName}}
+    {{> ui_nodes nodes=ui.nodes only=only isRegistration=isRegistration isRecovery=isRecovery isLogin=isLogin login=login isSettings=isSettings firstName=firstName lastName=lastName isDemoUser=isDemoUser password=password}}
   </form>
 </div>
