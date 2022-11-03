@@ -1,4 +1,4 @@
-{{#if (not isDemoUser) }}
+{{#if isDemoUser }}
   {{#each (onlyNodes nodes only)}}
     {{#if (eq this.attributes.name ../login)}}
       <fieldset>
