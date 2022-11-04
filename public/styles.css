@@ -205,4 +205,5 @@ button.button-sign-in:focus {
     color: rgb(107 114 128);
     margin-top: 0px;
     text-align: justify;
+    font-style: italic;
 }
