@@ -13,6 +13,8 @@
         </span>
       </fieldset>
 
+      <p class="text-description" id="description">Administers the project and works on programmatic tasks such as labeling automation or filter settings. They have access to all features of the application, including the Python SDK.</p>
+
       <fieldset
         class="text-input-fieldset"
         data-testid="node/input/{{attributes.name}}">
@@ -245,14 +247,17 @@
         case 'Engineer': 
           $('#email-input').val('demo.engineer@kern.ai');
           $('#password-input').val('c34540903b9f');
+          $('#description').html('Administers the project and works on programmatic tasks such as labeling automation or filter settings. They have access to all features of the application, including the Python SDK.')
           break;
         case 'Annotator':
           $('#email-input').val('demo.annotator@kern.ai');
           $('#password-input').val('c34540903b9f');
+          $('#description').html('Working on manual labels as if they were heuristics. They can be switched on/off by the engineering team, so that the engineers can in- or exclude them during weak supervision. They have access to a task-minimized labeling view only. Engineers can revoke their access to the labeling view.');
           break;
         case 'Expert':
           $('#email-input').val('demo.expert@kern.ai');
           $('#password-input').val('c34540903b9f');
+          $('#description').html('Working on reference manual labels, which can be used by the engineering team to estimate the data quality. They have access to the labeling view only.');
           break;
       }
     });
