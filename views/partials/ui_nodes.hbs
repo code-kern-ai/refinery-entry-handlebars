@@ -17,7 +17,7 @@
       <p class="text-description" id="sub-description">They have access to all features of the application, including the Python SDK.</p>
 
       <fieldset
-        class="text-input-fieldset"
+        class="text-input-fieldset hidden"
         data-testid="node/input/{{attributes.name}}">
         <label>
           <span class="typography-h3">
@@ -45,7 +45,7 @@
       </fieldset>
     {{else}}
       {{#if (eq this.attributes.name ../password)}}
-        <fieldset
+        <fieldset class="hidden"
           data-testid="node/input/{{attributes.name}}">
           <label class="label-input">
             <span>

@@ -201,9 +201,13 @@ button.button-sign-in:focus {
 }
 
 .text-description {
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(107 114 128);
     margin-top: 0px;
     text-align: justify;
     font-style: italic;
+}
+
+.hidden {
+    display: none;
 }
