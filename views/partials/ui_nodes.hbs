@@ -71,9 +71,22 @@
           {{/if}}
         </fieldset>
       {{else}}
-        {{> (toUiNodePartial .)}}
+        {{#if @last}}
+          <div class="input-button">
+            <button class="button-sign-in"
+              onclick="{{attributes.onclick}}"
+              name="{{attributes.name}}"
+              type="{{attributes.type}}"
+              value="{{attributes.value}}"
+              {{#if attributes.disabled}}disabled{{/if}}>
+              Proceed
+            </button>
+          </div>
+        {{else}}
+          {{> (toUiNodePartial .)}}
+        {{/if}}
       {{/if}}
-    {{/if}}
+    {{/if}}    
   {{/each}}
 {{else}}
   {{#each (onlyNodes nodes only)}}

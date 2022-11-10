@@ -10,7 +10,7 @@ docker run --rm -d \
 --mount type=bind,source="$(pwd)"/,target=/usr/src/app \
 --network dev-setup_default \
 -e IS_OS=0 \
--e IS_DEMO=1 \
+-e IS_DEMO=0 \
 refinery-entry-dev
 
 docker logs -f refinery-entry
