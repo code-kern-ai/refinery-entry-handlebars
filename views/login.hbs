@@ -1,5 +1,9 @@
 <div id="login">
-  <h2 class="title">Sign in to your account</h2>
+  {{#if isDemoUser }} 
+    <h2 class="title">Proceed with your selected role</h2>  
+  {{else}}
+    <h2 class="title">Sign in to your account</h2>
+  {{/if}}
   {{#if (not isDemoUser)}}
     {{#if isFreeTrial}}
     <p class="text-paragraph">Or

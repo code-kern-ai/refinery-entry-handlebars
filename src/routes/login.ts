@@ -54,6 +54,9 @@ export const createLoginRoute: RouteCreator =
           .catch(() => ({ data: { logout_url: '' } }))
       ).data.logout_url || ''
 
+    const roles = [
+      "Engineer", "Expert", "Annotator"
+    ];
     return sdk
       .getSelfServiceLoginFlow(flow, req.header('cookie'))
       .then(({ data: flow }) => {
@@ -65,7 +68,8 @@ export const createLoginRoute: RouteCreator =
           logoutUrl: logoutUrl,
           isLogin: true,
           login: 'password_identifier',
-          password: 'password'
+          password: 'password',
+          roles: roles
         })
       })
       .catch(redirectOnSoftError(res, next, initFlowUrl))
